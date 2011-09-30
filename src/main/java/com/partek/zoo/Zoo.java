@@ -1,5 +1,7 @@
 package com.partek.zoo;
 
+import com.partek.zoo.habitats.Habitat;
+
 public class Zoo {
 	String name;
 	public Zoo(String name) {

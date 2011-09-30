@@ -1,5 +1,8 @@
 package com.partek.zoo;
 
+import com.partek.zoo.animals.Animal;
+import com.partek.zoo.habitats.Habitat;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -21,37 +24,42 @@ public class AppTest extends TestCase
     }
 
     public void testZoo() {
-		Zoo zoo = new Zoo("Partek Zoo");
-
-/*
-    	Habitat h = zoo.getHabitat("Red Rocks");
-    	h.setNumPens(2);
-     	Animal l = h.getAnimal("lion");
-    	h.putAnimalInPen(l);
-    	Animal z = h.getAnimal("zebra");   	
-    	h.putAnimalInPen(z);
-    	Animal g = h.getAnimal("giraffe");   	
-    	h.putAnimalInPen(g);
-    
+    	
+	//Section 1:  Animals want to eat
+     	Animal lion = new Lion();
+    	Animal zebra = new Zebra();
     	//assume all carnivores eat all animals
     	//assume all herbivores eat no animals
-    	assertTrue(l.wantsToEat(z));
-    	assertFalse(l.getPen() == z.getPen());
+    	assertTrue(lion.wantsToEat(zebra));
     	
-    	assertTrue(l.wantsToEat(g));
-    	assertFalse(z.wantsToEat(g));
-    	assertTrue(g.getPen() == z.getPen());
-    	
-     	Animal t = h.getAnimal("tiger");
-    	assertFalse(h.putAnimalInPen(t)); //no free pens for a carnivore
-    	
-    	h.visit();
-    	//display a fact about Lions
-    	//display a fact about Zebras
-    	//display a fact about Giraffe
+    	Animal giraffe = new Giraffe();
+    	assertTrue(lion.wantsToEat(giraffe));
+    	assertFalse(zebra.wantsToEat(giraffe));
+    
+    //Section 2:  Putting animals in pens
+ 		Zoo zoo = new Zoo("Partek Zoo");
 
+    	Habitat habitat = zoo.getHabitat("Red Rocks");
+    	habitat.setNumPens(2);  //it's a small habitat
+       	
+    	habitat.putAnimalInPen(lion);
+    	habitat.putAnimalInPen(zebra);
+    	habitat.putAnimalInPen(giraffe);
+    	assertTrue(giraffe.getPen() == zebra.getPen());
+    	assertFalse(lion.getPen() == zebra.getPen());
+    	
+     	Animal tiger = new Tiger();
+    	assertFalse(habitat.putAnimalInPen(tiger)); //no free pens for a carnivore
+    
+    //Section 3:  A simple visit
+    	habitat.visit();
+    	//prints: 
+    	//Visited lion in Pen 0
+    	//Visited zebra in Pen 1
+    	//Visited giraffe in Pen 1
+
+    //Section 4:  The animal kingdom
 		//all mammals have hair
-		assertTrue(l.hasHair());  
-*/
+		assertTrue(lion.hasHair());  
     }
 }
