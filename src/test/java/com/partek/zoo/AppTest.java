@@ -25,7 +25,7 @@ public class AppTest extends TestCase
 
     public void testZoo() {
     	
-	//Section 1:  Animals want to eat
+	//  Animals want to eat
 
      	Animal lion = new Lion();
     	Animal zebra = new Zebra();
@@ -37,8 +37,7 @@ public class AppTest extends TestCase
     	assertTrue(lion.wantsToEat(giraffe));
     	assertFalse(zebra.wantsToEat(giraffe));
     	
-    //Section 2:  Putting animals in pens
-/*    	
+    //  Putting animals in pens
  		Zoo zoo = new Zoo("Partek Zoo");
 
     	Habitat habitat = zoo.getHabitat("Red Rocks");
@@ -47,22 +46,14 @@ public class AppTest extends TestCase
     	habitat.putAnimalInPen(lion);
     	habitat.putAnimalInPen(zebra);
     	habitat.putAnimalInPen(giraffe);
-    	assertTrue(giraffe.getPen() == zebra.getPen());
-    	assertFalse(lion.getPen() == zebra.getPen());
+    	assertTrue(habitat.getPen(giraffe) == habitat.getPen(zebra));
+    	assertFalse(habitat.getPen(lion) == habitat.getPen(zebra));
     	
      	Animal tiger = new Tiger();
     	assertFalse(habitat.putAnimalInPen(tiger)); //no free pens for a carnivore
-*/    
     	
-    //Section 3:  A simple visit
+    //  The animal kingdom
     	
-//    	habitat.visit();
-    	//prints: 
-    	//Visited lion in Pen 0
-    	//Visited zebra in Pen 1
-    	//Visited giraffe in Pen 1
-
-    //Section 4:  The animal kingdom
 		//all mammals have hair
 //		assertTrue(lion.hasHair());  
     }

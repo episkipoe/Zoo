@@ -17,5 +17,10 @@ public class Habitat {
 		//TODO
 		return false;
 	}
+	
+	public int getPen(Animal animal) {
+		//TODO
+		return 0;
+	}
 
 }
